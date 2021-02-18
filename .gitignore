@@ -1,0 +1,5 @@
+/docker/phpmyadmin/
+/.env
+/.vscode
+/data/*
+/logs/*
