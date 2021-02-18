@@ -1,0 +1,9 @@
+# phpバージョン指定
+FROM php:5.4-apache
+# Required
+RUN apt-get update
+RUN apt-get install mcrypt libmcrypt-dev -y
+RUN docker-php-ext-install mysql mysqli pdo_mysql mbstring
+
+# Enable RewriteEngine
+RUN a2enmod rewrite
