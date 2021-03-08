@@ -10,3 +10,4 @@ RUN curl -sSL https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhs
 
 # Enable RewriteEngine
 RUN a2enmod rewrite
+COPY php.ini /usr/local/etc/php/
