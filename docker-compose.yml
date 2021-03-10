@@ -4,7 +4,7 @@ services:
   php:
     build: ./docker/php
     volumes:
-       - ./html:/var/www/html
+       - ./html:/var/www/public_html/
     ports:
        - 8080:80
     links:
@@ -14,14 +14,15 @@ services:
 
   mysql:
     image: mysql:5.7
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
        - ./docker/mysql:/var/lib/mysql
+       - ./docker/mysql/conf.d:/etc/mysql/conf.d
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=db
       - MYSQL_USER=test
       - MYSQL_PASSWORD=test
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     environment:
